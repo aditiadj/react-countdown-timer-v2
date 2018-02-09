@@ -1,15 +1,38 @@
-import React from 'react'
+import React, {Component} from 'react'
+import moment from 'moment'
 
-const Datepicker = (props) =>
-<div className="field is-grouped is-grouped-centered" style={{marginBottom: 40}}>
-  <p className="control">
-    <input className="input is-medium is-rounded" placeholder="Type a date you want"/>
-  </p>
-  <p className="control">
-    <a className="button is-grey is-outlined is-medium is-rounded">
-      Search
-    </a>
-  </p>
-</div>
+export default class Datepicker extends Component {
+  state = {
+    date: '',
+    valid: true,
+    dirty: false
+  }
 
-export default Datepicker
+  handleDateChange = ({target: {value}}) => {
+    const date = moment(value),
+      valid = date.isValid() && date.isAfter(moment())
+
+    this.setState ({
+      valid,
+      date: value,
+      dirty: true
+    })
+    valid && this.props.onDateReset(date)
+  }
+
+  render(){
+    let {date, valid, dirty} = this.state,
+      classes = 'input is-medium is-rounded'
+
+
+    valid && dirty && (classes += ' is-success')
+
+    !valid && dirty && (classes += ' is-danger')
+
+    return <div className="field is-grouped is-grouped-centered" style={{marginBottom: 40}}>
+        <p className="control has-text-centered">
+          <input className={classes} value={date} onChange={this.handleDateChange} placeholder="YYYY/DD/MM"/>
+        </p>
+      </div>
+  }
+}
