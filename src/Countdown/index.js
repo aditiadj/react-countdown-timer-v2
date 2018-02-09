@@ -86,7 +86,7 @@ export default class Countdown extends Component {
       <div className="hero-body">
         <div className="container">
           <h1 className="title has-text-centered">
-            Counting {nextDate.calendar()}
+            Counting {nextDate.calendar()} (US Calendar)
             <button
               className="button is-small is-rounded is-dark"
               style={{margin: '5px 0 0 10px'}}
