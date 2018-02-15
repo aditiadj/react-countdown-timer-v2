@@ -4,7 +4,7 @@ Countdown Timer v2 using Bulma Framework
 
 ### How to run?
 
-> Git clone this repository
+> Clone this repository
 
 ```
 yarn install
