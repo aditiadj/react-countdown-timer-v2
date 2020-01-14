@@ -1,7 +1,7 @@
 # React Countdown Timer v2
 
 Countdown Timer v2 using Bulma Framework
-
+//===============================
 ### How to run?
 
 > 1. Open terminal
@@ -19,3 +19,4 @@ Countdown Timer v2 using Bulma Framework
 > 7. Click `ctrl f` and delete all syntax `"undefined"==typeof require||null===require||require.amd?this.moment:`
 
 > 8. `yarn start` in terminal
+//=================================
